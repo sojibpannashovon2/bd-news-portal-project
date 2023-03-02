@@ -27,3 +27,18 @@ newsDiv.innerHTML = `
             </div>
       `
 newsContainer.appendChild(newsDiv);
+
+
+
+
+
+// close
+<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+
+<div class="modal-footer">
+<button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+<button type="button" class="btn btn-primary">Save changes</button>
+</div>
+
+
+<i class="fa-solid fa-delete-left fa-2x" data-bs-dismiss="modal" aria-label="Close"></i>

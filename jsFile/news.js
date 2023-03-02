@@ -43,10 +43,10 @@ const allNewsLoad = (category_id, category_name) => {
 
 }
 const allnewsDisplay = (items) => {
-    console.log(items);
+    // console.log(items);
     const newsContainer = document.getElementById('news-container')
     items.forEach(news => {
-        console.log(news)
+        // console.log(news)
         const { thumbnail_url, title, details, author, total_view, rating, _id } = news;
         // console.log(_id);
         const newsDiv = document.createElement('div');
@@ -105,30 +105,30 @@ const allnewsDisplay = (items) => {
 const modalDataLoad = async (_id) => {
     console.log("its working babe", _id)
     const modalURL = `https://openapi.programming-hero.com/api/news/${_id}`;
-    console.log(modalURL);
+    // console.log(modalURL);
     const res = await fetch(modalURL);
     const dop = await res.json();
     modalDataDisplay(dop.data[0])
 }
 const modalDataDisplay = (modal) => {
-    console.log(modal);
+    // console.log(modal);
     const { title, image_url, rating, others_info, author, total_view } = modal;
-    const modalContainer = document.getElementById("exampleModal");
-    const modalDiv = document.createElement('div');
-    modalDiv.classList.add('modal-dialog');
-    modalDiv.innerHTML = `
+    const modalContainer = document.getElementById("modal-body");
+    // const modalDiv = document.createElement('div');
+    // modalDiv.classList.add('modal-dialog');
+    modalContainer.innerHTML = `
+            <div class="modal-dialog">
                 <div class="modal-content">
                     <div class="modal-header">
                         <h1 class="modal-title fs-5" id="exampleModalLabel">${title}<span class="ms-2 btn btn-primary p-1 bg-warning">${rating.badge ? rating.badge : "No Badge ##"}</span></h1>
-                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                       
+                        
+                        <i class="fa-solid fa-delete-left fa-2x" data-bs-dismiss="modal" aria-label="Close"></i>
                     </div>
                     <div class="modal-body">
                         <img class="img-fluid" src="${image_url}">
                     </div>
-                    <div class="modal-footer">
-                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                        <button type="button" class="btn btn-primary">Save changes</button>
-                    </div>
+                   
                     <div class="card-footer bg-body border-0 d-flex justify-content-between">
                                     <div class="d-flex justify-content-center align-items-center gap-2">
                                         <div>
@@ -155,7 +155,9 @@ const modalDataDisplay = (modal) => {
                   
                 </div>
                 </div>
+                </div>
+
     `
-    modalContainer.appendChild(modalDiv);
+    // modalContainer.appendChild(modalDiv);
 }
 
